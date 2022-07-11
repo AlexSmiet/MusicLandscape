@@ -10,7 +10,7 @@ public class Artist {
         this.setName(a.getName());
     }
     public Artist (String name){
-        this.setName(name);
+        this.name = name;
     }
 
     public String getName() {

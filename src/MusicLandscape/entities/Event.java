@@ -12,7 +12,7 @@ public class Event {
     private Date originalDate;
 
     public Event(){
-        Artist defaultArtist = new Artist();
+        artist = new Artist();
         setDescription("");
         setDate(null);
         setVenue(null);
@@ -23,7 +23,10 @@ public class Event {
     }
 
     public void setArtist(Artist artist) {
-        if(artist!=null){
+        if(artist==null){
+            this.artist = new Artist();
+        }
+        else{
             this.artist = artist;
         }
     }
@@ -39,18 +42,21 @@ public class Event {
     }
 
     public Date getDate() {
-        Date copyDate = date;
-        return copyDate;
+        if(date == null) {
+            return null;
+        }
+        return new Date(date);
     }
 
     public void setDate(Date date) {
         originalDate = this.date;
-        if(date!=null){
-            this.date = date;
-        }
-        else{
+        if(date == null) {
             this.date = null;
         }
+        else{
+            this.date = new Date(date);
+        }
+
     }
 
     public String getDescription() {
