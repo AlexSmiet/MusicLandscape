@@ -7,14 +7,29 @@ public class Track {
     private Artist writer;
     private Artist performer;
 
+    public Track(){
+        this.writer=new Artist();
+        this.performer=new Artist();
+    }
 
     public String getTitle() {
-        if(title==null){
-            return "unknown title";
+        if(title==null) return "unknown title";
+        return title;
+    }
+
+    /**
+     * Trims a given string to be exactly 10 characters wide. If the given String is smaller than 10 characters the
+     * remaining characters will be filled with blankspaces.
+     *
+     * @param s String to be trimmed
+     * @return Trimmed String
+     */
+    private String trimToTenChars(String s){
+        if(s!=null){
+            if(s.length() >= 10) return s.substring(0, 10);
+            return  " ".repeat(10 - s.length()) + s;
         }
-        else {
-            return title;
-        }
+       return  " ".repeat(3) + "unknown";
     }
 
     public void setTitle(String title) {
@@ -41,6 +56,12 @@ public class Track {
         }
     }
     public Artist getWriter() {
+        if(writer==null){
+            Artist dummy = new Artist();
+            dummy.setName("unknown");
+            return dummy;
+        }
+
         return writer;
     }
 
@@ -48,26 +69,24 @@ public class Track {
         if(writer!=null){
             this.writer = writer;
         }
-        else{
-
-        }
     }
 
     public Artist getPerformer() {
-
+        if(performer==null){
+            Artist dummy = new Artist();
+            dummy.setName("unknown");
+            return dummy;
+        }
         return performer;
     }
 
     public void setPerformer(Artist performer) {
-        if(performer!=null){
+        if(performer!=null) {
             this.performer = performer;
-        }
-        else{
-
         }
     }
     public boolean writerIsKnown(){ //A writer is considered as known if the name is not equal to null .
-        if(writer == null){
+        if(this.writer == null || this.writer.getName() == null){
             return false;
         }
         else{
@@ -75,6 +94,28 @@ public class Track {
         }
     }
     public String getString(){
-        return getTitle().substring(0, 10) + " by " + getWriter() + " performed by " + getPerformer() + "(";
+        String title;
+        String min_dur;
+        String sec_dur;
+        if(getTitle().equals("unknown title")){
+            title = "unknown";
+        }
+        else{
+            title = getTitle();
+        }
+        if(getDuration()/60 < 10){
+            min_dur = "0" + getDuration()/60;
+        }
+        else{
+            min_dur = String.valueOf(getDuration()/60);
+        }
+        if(getDuration()%60 < 10){
+            sec_dur = "0" + getDuration()%60;
+        }
+        else{
+            sec_dur = String.valueOf(getDuration()%60);
+        }
+        return trimToTenChars(title) + " by " + trimToTenChars(getWriter().getName()) + " performed by " + trimToTenChars(getPerformer().getName()) + " (" + min_dur + ":" + sec_dur + ")";
+
     }
 }

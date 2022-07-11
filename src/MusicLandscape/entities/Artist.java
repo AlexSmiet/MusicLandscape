@@ -4,6 +4,9 @@ public class Artist {
 
     private String name;
 
+    public Artist(){
+        this.name=null;
+    }
     public String getName() {
         if(name!=null){
             return name;
@@ -12,14 +15,11 @@ public class Artist {
         }
     }
 
-    public void setName(String name) {
-        if(name==null || name.equals("")){
+    public void setName(String n) {
+        if(n==null || !n.matches(".*\\w.*")){
         }
         else{
-            this.name = name;
+            this.name = n;
         }
     }
-
-
-
 }
