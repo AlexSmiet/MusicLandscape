@@ -10,6 +10,25 @@ public class Track {
     public Track(){
         this.writer=new Artist();
         this.performer=new Artist();
+
+        setTitle(null);
+        setDuration(1900);
+        setYear(1900);
+    }
+    public Track(String title){
+        this.writer=new Artist();
+        this.performer=new Artist();
+
+        setTitle(title);
+        setDuration(1900);
+        setYear(1900);
+    }
+    public Track(Track t){
+        this.title = t.title;
+        this.writer = t.writer;
+        this.performer = t.performer;
+        this.year = t.year;
+        this.duration = t.duration;
     }
 
     public String getTitle() {
