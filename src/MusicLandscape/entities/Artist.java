@@ -9,21 +9,19 @@ public class Artist {
     public Artist(Artist a){
         this.setName(a.getName());
     }
+
     public Artist (String name){
-        this.setName(name);
+        this.name = name;
     }
 
     public String getName() {
-        if(name!=null){
-            return name;
-        }else{
-            return null;
-        }
+        return this.name;
     }
 
     public void setName(String n) {
-        if(n==null || !n.matches(".*\\w.*")){
 
+        if(n==null || !n.matches(".*\\w.*")){
+            this.name = "unknown";
         }
         else{
             this.name = n;
