@@ -12,6 +12,7 @@ public class TVShow extends Event{
     }
     public TVShow(Event e){
         Date newDate = new Date();
+
         this.setDate(e.getDate());
         Artist newArtist = new Artist();
         newArtist.setName(e.getArtist().getName());
