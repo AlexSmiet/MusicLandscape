@@ -135,6 +135,8 @@ public class Track {
             sec_dur = String.valueOf(getDuration()%60);
         }
         return trimToTenChars(title) + " by " + trimToTenChars(getWriter().getName()) + " performed by " + trimToTenChars(getPerformer().getName()) + " (" + min_dur + ":" + sec_dur + ")";
-
+    }
+    public String toString(){
+        return getString();
     }
 }

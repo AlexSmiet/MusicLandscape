@@ -14,10 +14,20 @@ public class Event {
     public Event(){
         artist = new Artist();
         setDescription("");
+        /*
         setDate(null);
         setVenue(null);
         setDate(null);
+        */
     }
+    public Event(Event e){
+        this.attendees = e.attendees;
+        this.description = e.description;
+        this.artist = new Artist(e.artist);
+        this.date = new Date(e.date);
+        this.venue = new Venue(e.venue);
+    }
+
     public Artist getArtist() {
         return artist;
     }
@@ -75,5 +85,30 @@ public class Event {
 
     public void setVenue(Venue venue) {
         this.venue = venue;
+    }
+    public String toString(){
+        String venue;
+       // String date;
+        if(getVenue()==null){
+            venue="unknown";
+        }
+        else{
+            venue= this.venue.getName();
+        }
+
+        /*
+        if(getDate()==null){
+            date="unknown";
+        }
+        else{
+            date= String.valueOf(getDate());
+        }
+        */
+        //System.out.println(this.getArtist());
+        return artist.getName() + " @ " + venue + " on " + getDate() +"\n" + getDescription() + "\n" + "("+ getAttendees() + " attending (" + impact() + "))";
+    }
+
+    public int impact(){
+        return getAttendees()*2;
     }
 }
