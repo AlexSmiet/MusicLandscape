@@ -27,4 +27,14 @@ public class Artist {
             this.name = n;
         }
     }
+    public String toString(){
+        String artist;
+        if(getName()==null){
+            artist="unknown";
+        }
+        else{
+            artist=getName();
+        }
+        return artist;
+    }
 }

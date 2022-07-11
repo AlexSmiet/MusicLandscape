@@ -12,7 +12,7 @@ public class Track {
         this.performer=new Artist();
 
         setTitle(null);
-        setDuration(1900);
+        setDuration(0);
         setYear(1900);
     }
     public Track(String title){
@@ -25,8 +25,8 @@ public class Track {
     }
     public Track(Track t){
         this.title = t.title;
-        this.writer = t.writer;
-        this.performer = t.performer;
+        this.writer = new Artist(t.writer);
+        this.performer = new Artist(t.performer);
         this.year = t.year;
         this.duration = t.duration;
     }
@@ -135,6 +135,8 @@ public class Track {
             sec_dur = String.valueOf(getDuration()%60);
         }
         return trimToTenChars(title) + " by " + trimToTenChars(getWriter().getName()) + " performed by " + trimToTenChars(getPerformer().getName()) + " (" + min_dur + ":" + sec_dur + ")";
-
+    }
+    public String toString(){
+        return getString();
     }
 }

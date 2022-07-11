@@ -2,7 +2,11 @@
 // 
 //       git.rev = 234
 //  git.revision = fdd4980be270473bdd7e8206afeda65ab6e4c3a4
+<<<<<<< HEAD
 //         stage = ES02
+=======
+//         stage = ES03
+>>>>>>> 96996aa7bbeb65ac5ece7d6adc873b0605641d35
 //
 // ***************************************************
 
@@ -25,7 +29,11 @@ import static org.testng.Assert.*;
  * 
  * @author TeM
  * @version 234
+<<<<<<< HEAD
  * @Stage ES02
+=======
+ * @Stage ES03
+>>>>>>> 96996aa7bbeb65ac5ece7d6adc873b0605641d35
  *
  */
 public class ArtistTest {
@@ -34,6 +42,7 @@ public class ArtistTest {
 	
 	
 	
+<<<<<<< HEAD
 	@Test
 	/**
 	 * checks if initial value of name is "unknown"
@@ -50,10 +59,13 @@ public class ArtistTest {
 		} catch (Exception e) {
 		}
 	}
+=======
+>>>>>>> 96996aa7bbeb65ac5ece7d6adc873b0605641d35
 	
 	
 	
 	
+<<<<<<< HEAD
 	
 
 	
@@ -143,6 +155,8 @@ public class ArtistTest {
 	}
 
 	
+=======
+>>>>>>> 96996aa7bbeb65ac5ece7d6adc873b0605641d35
 
 	
 	@DataProvider(name = "names2")
@@ -154,6 +168,21 @@ public class ArtistTest {
 		
 	 
 	
+<<<<<<< HEAD
+=======
+	/**************** ES 03 ***********************/
+	@Test(dataProvider = "names2")
+	public void testtoString(String in, String out) {
+		
+		boolean myTest=(new Artist(in).toString()==out)||
+				(new Artist(in).toString()==in);
+		assertEquals(myTest, true);
+	}
+	
+
+
+	
+>>>>>>> 96996aa7bbeb65ac5ece7d6adc873b0605641d35
 
 	
 }
